@@ -173,7 +173,7 @@ body{
 }
 .imggg {
     border: 2px solid var(--pgreenD);
-    background-color: white;
+    /* background-color: white; */
     padding: 5px;
     height: 190px;
     width: 190px;

@@ -27,7 +27,7 @@ const colorMode = document.querySelector(".lightMode");
 const sun = document.querySelector("#sun")
 const moon = document.querySelector("#moon")
 const header = document.querySelector(".header")
-
+const info = document.querySelector(".info")
 // color mode changer function
 var cnt = "dark"
   function modeChange(){
@@ -35,12 +35,14 @@ var cnt = "dark"
       sun.classList.toggle("hide")
       moon.classList.toggle("hide")
     if(cnt=="dark"){
+        info.style.backgroundColor = "#E7E7E7"
         header.style.backgroundColor = "#238636";
         header.style.color = "#fff";
         document.body.style.backgroundColor = "#000";
         cnt = "light"
     }
     else{
+        info.style.backgroundColor = "#fff"
         header.style.backgroundColor = "#E7E7E7";
         header.style.color = "#0d1117";
         document.body.style.backgroundColor = "#fff";
