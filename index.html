@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Finder | BA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="headText">GitHub Profile <span class="blue">Finder</span> </div>
+        <div class="modeBtn">
+            <button class="lightMode btn">
+                <div class="moon" id="moon">
+
+                    <i class="fa fa-solid fa-moon" ></i>
+                </div>
+                <div class="sun hide" id="sun">
+
+                    <i class="fas fa-thin fa-sun hide" ></i>
+                </div>
+                <!-- <i class="fas fa fa-thin fa-brightness"></i> -->
+
+            </button>
+        </div>
+    </div>
+
+    <!-- main content -->
+    <div class="wrapper " >
+
+        <section class="searchBar">
+            <input type="text" name="" id="txt-input" placeholder="Enter Username" class="search" autofocus>
+            <i class="fa fa-thin fa-magnifying-glass glass" id="submit"></i>
+        </section>
+    </div>
+
+    <div class="content" id="content">
+        <div class="gridd">
+
+            <div class="pic">
+                <a href="" target="_blank" id="gitLinker" class="links">
+                    <img src="" alt="" class="imggg " id="proPic">
+                    <div class="nameProfile " id="proName"></div>
+
+                </a>
+            </div>
+            <div class="info">
+                <div class="repo">
+                    UserName: 
+                    
+                </div>
+                <div class="repo flex-col">
+                    Top 3 recent repositories:
+                    <div class="repos"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
