@@ -1,22 +1,30 @@
+// url api initiate
 const url = "https://api.github.com/users/";
-const submitBtn = document.querySelector("#submit")
-var txtInput = document.querySelector("#txt-input");
 const repoUrl = "https://api.github.com/users/"
-// const namee = userName.value; 
+var txtInput = document.querySelector("#txt-input");
+const submitBtn = document.querySelector("#submit")
+
+// content fetching
 const proName = document.querySelector("#proName")
 const proPic = document.querySelector("#proPic")
 const contentt = document.querySelector("#content")
 const gitLinker = document.querySelector("#gitLinker")
-
 const repos = document.querySelector(".repos")
 
+// part 2 fetch 
+const li1 = document.querySelector(".list1")
+const li2 = document.querySelector(".list2")
+const li3 = document.querySelector(".list3")
+const li4 = document.querySelector(".list4")
 
+
+// color changing utilities
 const colorMode = document.querySelector(".lightMode");
 const sun = document.querySelector("#sun")
 const moon = document.querySelector("#moon")
-// var bodyy = document.getElementsByTagName("body");
 const header = document.querySelector(".header")
 
+// color mode changer function
 var cnt = "dark"
   function modeChange(){
       console.log("Hello")
@@ -29,36 +37,32 @@ var cnt = "dark"
         cnt = "light"
     }
     else{
-        
         header.style.backgroundColor = "#E7E7E7";
         header.style.color = "#0d1117";
         document.body.style.backgroundColor = "#fff";
         cnt = "dark"
     }
-    // colorMode.textContent = "Hello"
 }
-
 colorMode.addEventListener("click", modeChange)
 
 
+// url fetching 
 function getTranslateURL(text) {
     return url + text;
 }
-
 function getRepoURL(text) {
     return repoUrl + text + "/repos";
 }
 
 
+// error handling 
 function errorHandler(error) {
     console.log("error occured", error);
     alert("User Not Found");
-    // contentt.classList.add("hide")
-    // contentt.classList.add("hide")
     contentt.classList.remove("show")
 }
 
-
+// utility functions to show and hide with transition 
 function showww(){
     // contentt.classList.remove("hide")
     contentt.classList.add("show")
@@ -66,6 +70,11 @@ function showww(){
 function hideee(){
     contentt.classList.remove("show")
 }
+
+function unavailable(str){
+    str.textContent = "unavailable"
+}
+// main searching function of GitHub Profiles
 function searcher() {
     hideee();
     var inputText = txtInput.value;
@@ -80,16 +89,18 @@ function searcher() {
             proName.textContent = proN;
             proPic.src = proPi;
             gitLinker.href = json.html_url
-            // txtOutput.textContent = translatedText;
-            // console.log(translatedText)
             showww();
-            
+            li1.textContent = json.login;
+            li2.textContent = json.followers;
+            li3.textContent = json.following;
+            li4.textContent = json.bio;
+            if(li4.textContent == ""){
+                unavailable(li4);
+            }
         })
         .catch(errorHandler);
-        
 
-
-    // repoooooooooooooooooo
+    // repo finding
     console.log(inpUserRepo)
     fetch(inpUserRepo)
         .then(res => res.json())
@@ -108,15 +119,15 @@ function searcher() {
 
         })
         .catch(errorHandler);
-
-
 }
 
+
 submitBtn.addEventListener("click", searcher);
+
+
+// utility function for enter pressing search 
 document.addEventListener("keyup", function(event) {
     if (event.key === "Enter") {
-        // alert('Enter is pressed!');
         searcher();
-        // console.log('enter')
     }
 });
