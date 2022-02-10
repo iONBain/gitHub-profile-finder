@@ -9,8 +9,12 @@ const proName = document.querySelector("#proName")
 const proPic = document.querySelector("#proPic")
 const contentt = document.querySelector("#content")
 const gitLinker = document.querySelector("#gitLinker")
-const repos = document.querySelector(".repos")
-
+const repo1 = document.querySelector(".repo1")
+const repo2 = document.querySelector(".repo2")
+const repo3 = document.querySelector(".repo3")
+const link1 = document.querySelector("#repo1")
+const link2 = document.querySelector("#repo2")
+const link3 = document.querySelector("#repo3")
 // part 2 fetch 
 const li1 = document.querySelector(".list1")
 const li2 = document.querySelector(".list2")
@@ -105,9 +109,18 @@ function searcher() {
     fetch(inpUserRepo)
         .then(res => res.json())
         .then(json => {
-            // console.log(json)
-            const arr = json.name;
-            console.log(arr)
+            console.log(json)
+            const arr1 = json[0].name;
+            const arr2 = json[1].name;
+            const arr3 = json[2].name;
+            // console.log(arr)
+            repo1.textContent = arr1;
+            repo2.textContent = arr2;
+            repo3.textContent = arr3;
+            link1.href = json[0].html_url;
+            link2.href = json[1].html_url;
+            link3.href = json[2].html_url;
+            // console.log(arr[0])
             // arr.forEach(function(entry) {
             //     console.log(entry);
             //   });
@@ -118,7 +131,7 @@ function searcher() {
             // console.log(translatedText)
 
         })
-        .catch(errorHandler);
+        // .catch(errorHandler);
 }
 
 

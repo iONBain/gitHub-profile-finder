@@ -103,7 +103,11 @@ body{
     
 
 }
-
+.repos{
+    margin-top: 10px;
+    cursor: pointer;
+    color: var(--pgreen);
+}
 .glass {
     transform: scale(1.1);
     background-color: var(--pgreen);
