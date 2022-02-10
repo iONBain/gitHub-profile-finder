@@ -80,7 +80,7 @@ body{
     display: flex;
     height: 60%;
     width: 80vw;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     justify-self: center;
     align-items: center;
 }
