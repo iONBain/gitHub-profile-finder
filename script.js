@@ -63,9 +63,9 @@ function getRepoURL(text) {
 
 // error handling 
 function errorHandler(error) {
+    contentt.classList.remove("show")
     console.log("error occured", error);
     alert("User Not Found");
-    contentt.classList.remove("show")
 }
 
 // utility functions to show and hide with transition 
@@ -86,10 +86,15 @@ function searcher() {
     var inputText = txtInput.value;
     var inpUser = getTranslateURL(inputText);
     var inpUserRepo = getRepoURL(inputText);
+    
     fetch(inpUser)
         .then(res => res.json())
         .then(json => {
-            console.log(json)
+            if(json.message == "Not Found" ){
+                errorHandler();
+            }
+            else{
+                console.log(json)
             var proN = json.name;
             var proPi = json.avatar_url;
             proName.textContent = proN;
@@ -103,8 +108,10 @@ function searcher() {
             if(li4.textContent == ""){
                 unavailable(li4);
             }
-        })
-        .catch(errorHandler);
+        }
+        txtInput.value = "";
+    })
+        // .catch(errorHandler);
 
     // repo finding
     console.log(inpUserRepo)
