@@ -315,6 +315,7 @@ ul li{
         
     }
     .info{
+        height: 50vh;
         border-bottom-left-radius: 40px;
         justify-self: center;
         border-top-right-radius: 0;
