@@ -80,7 +80,7 @@ body{
     display: flex;
     height: 60%;
     width: 80vw;
-    /* border: 2px solid red; */
+    border: 2px solid red;
     justify-self: center;
     align-items: center;
 }
@@ -241,3 +241,52 @@ body{
     opacity: 1;
     transform: scale(1);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* responsive */
+@media only screen and (max-width: 750px) {
+
+    .gridd {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 3fr;
+        grid-template-areas: 
+        "imgg"
+        "info"
+        ;
+    }
+    .searchBar{
+        /* align-self: center; */
+        justify-content: center;
+    }
+    .pic{
+        border-radius: 0px;
+        justify-self: center;
+        border-top-right-radius: 40px;
+        width: 80%;
+        
+    }
+    .info{
+        border-bottom-left-radius: 40px;
+        justify-self: center;
+        border-top-right-radius: 0;
+        width: 80%;
+    }
+    
+  }
