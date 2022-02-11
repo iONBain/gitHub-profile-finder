@@ -320,6 +320,7 @@ ul li{
         justify-self: center;
         border-top-right-radius: 0;
         width: 85%;
+        margin-bottom: 40px;
     }
     .headText{
         font-size: 1.5rem;

@@ -30,18 +30,18 @@ const header = document.querySelector(".header")
 const info = document.querySelector(".info")
 // color mode changer function
 var cnt = "dark"
-  function modeChange(){
-      console.log("Hello")
-      sun.classList.toggle("hide")
-      moon.classList.toggle("hide")
-    if(cnt=="dark"){
+
+function modeChange() {
+    console.log("Hello")
+    sun.classList.toggle("hide")
+    moon.classList.toggle("hide")
+    if (cnt == "dark") {
         info.style.backgroundColor = "#E7E7E7"
         header.style.backgroundColor = "#238636";
         header.style.color = "#fff";
         document.body.style.backgroundColor = "#000";
         cnt = "light"
-    }
-    else{
+    } else {
         info.style.backgroundColor = "#fff"
         header.style.backgroundColor = "#E7E7E7";
         header.style.color = "#0d1117";
@@ -56,6 +56,7 @@ colorMode.addEventListener("click", modeChange)
 function getTranslateURL(text) {
     return url + text;
 }
+
 function getRepoURL(text) {
     return repoUrl + text + "/repos";
 }
@@ -69,49 +70,65 @@ function errorHandler(error) {
 }
 
 // utility functions to show and hide with transition 
-function showww(){
+function showww() {
     // contentt.classList.remove("hide")
     contentt.classList.add("show")
 }
-function hideee(){
+
+function hideee() {
     contentt.classList.remove("show")
 }
 
-function unavailable(str){
+function unavailable(str) {
     str.textContent = "unavailable"
+}
+
+function clearPrev() {
+    li1.textContent = "";
+    li2.textContent = "";
+    li3.textContent = "";
+    li4.textContent = "";
+    proName.textContent = "";
+    proPic.src = "";
+    repo1.textContent = "";
+    repo2.textContent = "";
+    repo3.textContent = "";
+    link1.href = "";
+    link2.href = "";
+    link3.href = "";
 }
 // main searching function of GitHub Profiles
 function searcher() {
     hideee();
+    clearPrev();
     var inputText = txtInput.value;
     var inpUser = getTranslateURL(inputText);
     var inpUserRepo = getRepoURL(inputText);
-    
+
     fetch(inpUser)
         .then(res => res.json())
         .then(json => {
-            if(json.message == "Not Found" ){
+            if (json.message == "Not Found") {
                 errorHandler();
-            }
-            else{
+            } else {
                 console.log(json)
-            var proN = json.name;
-            var proPi = json.avatar_url;
-            proName.textContent = proN;
-            proPic.src = proPi;
-            gitLinker.href = json.html_url
-            showww();
-            li1.textContent = json.login;
-            li2.textContent = json.followers;
-            li3.textContent = json.following;
-            li4.textContent = json.bio;
-            if(li4.textContent == ""){
-                unavailable(li4);
+                var proN = json.name;
+                var proPi = json.avatar_url;
+                proName.textContent = proN;
+                proPic.src = proPi;
+                gitLinker.href = json.html_url
+                showww();
+                li1.textContent = json.login;
+                li2.textContent = json.followers;
+                li3.textContent = json.following;
+                li4.textContent = json.bio;
+                if (li4.textContent == "") {
+                    unavailable(li4);
+                }
             }
-        }
-        txtInput.value = "";
-    })
-        // .catch(errorHandler);
+            txtInput.value = "";
+        })
+    // .catch(errorHandler);
 
     // repo finding
     console.log(inpUserRepo)
@@ -140,7 +157,7 @@ function searcher() {
             // console.log(translatedText)
 
         })
-        // .catch(errorHandler);
+    // .catch(errorHandler);
 }
 
 
@@ -148,7 +165,7 @@ submitBtn.addEventListener("click", searcher);
 
 
 // utility function for enter pressing search 
-document.addEventListener("keyup", function(event) {
+document.addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
         searcher();
     }
