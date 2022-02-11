@@ -296,10 +296,12 @@ ul li{
 
     .gridd {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 3fr;
+        grid-template-rows: 1fr 3fr 1fr;
+        margin-bottom: 40px;
         grid-template-areas: 
         "imgg"
         "info"
+        "blank"
         ;
     }
     .searchBar{
@@ -314,13 +316,19 @@ ul li{
         width: 85%;
         
     }
+    .blank{
+        grid-area: blank;
+        height: 40px;
+        width: 100%;
+        /* background-color: red; */
+    }
     .info{
         height: 40vh;
         border-bottom-left-radius: 40px;
         justify-self: center;
         border-top-right-radius: 0;
         width: 85%;
-        margin-bottom: 40px;
+        /* margin-bottom: 40px; */
     }
     .headText{
         font-size: 1.5rem;
